@@ -1,0 +1,2 @@
+export const TOGGLE_IS_AUTH = "TOGGLE_IS_AUTH";
+export const UPDATE_AVATAR = "UPDATE_AVATAR";

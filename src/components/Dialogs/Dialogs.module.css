@@ -1,0 +1,55 @@
+.dialogs {
+  display: grid;
+  grid-template-rows: 1fr 7fr 2fr;
+  background-image: url(../../common/img/bcg_1.jpg);
+  background-color: #f4f4fe;
+  height: 100vh;
+}
+.dialogs__header {
+  padding: 10px 25px;
+  display: grid;
+  align-items: center;
+  justify-items: self-start;
+  margin-bottom: 10px;
+  font-family: "Roboto";
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.dialogs__body {
+  overflow: auto;
+  margin-bottom: 20px;
+}
+.dialogs__chat {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-items: center;
+  justify-items: center;
+}
+.dialogs__chat_input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.dialogs__messages {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.dialogs__chat_options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.hide {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .dialogs__chat {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+  }
+}

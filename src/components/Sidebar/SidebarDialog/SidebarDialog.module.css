@@ -1,0 +1,24 @@
+.sidebar__dialog {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 0;
+}
+.sidebar__dialog__icon {
+  margin: 0 15px;
+}
+
+.sidebar__dialog__info_link {
+  text-decoration: none;
+  color: #54555e;
+  font-weight: 500;
+}
+
+.active {
+  color: #76b9ca;
+}
+@media (max-width: 767px) {
+  .sidebar__dialog__info {
+    display: none;
+  }
+}

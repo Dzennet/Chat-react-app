@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Container from "@material-ui/core/Container";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import LoginContainer from "./containers/LoginContainer";
+import WorkDialogs from "./pages/WorkDialogs/WorkDialogs";
+import FriendDialogs from "./pages/FriendDialogs/FriendDialogs";
 
-function App() {
+function App(props) {
+  if (!props.isAuth) {
+    return <LoginContainer />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <div className="app">
+        <Sidebar />
+        <div className="app-content">
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to="/dialogs/work" />}
+          />
+          <Route path="/dialogs/work" component={WorkDialogs} />
+          <Route path="/dialogs/friend" component={FriendDialogs} />
+        </div>
+      </div>
+    </Container>
   );
 }
-
-export default App;
+let mapStateToProps = (state) => ({
+  isAuth: state.authStore.isAuth,
+});
+export default connect(mapStateToProps, {})(App);
